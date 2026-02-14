@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "active_vehicle_id": "maxine-06-maxima",
+  "vehicles": [
+    {
+      "id": "maxine-06-maxima",
+      "name": "Maxine",
+      "year": 2006,
+      "make": "Nissan",
+      "model": "Maxima",
+      "items": [
+        {
+          "date": "2025-11-20",
+          "name": "Cold Air Intake",
+          "category": "Engine",
+          "status": "Installed",
+          "mileage": "146000",
+          "cost": "100",
+          "notes": "N/A",
+          "attachments": [],
+          "updated_at": "2026-02-12 19:22:49"
+        },
+        {
+          "date": "2026-02-14",
+          "name": "Crankshaft Position Sensor",
+          "category": "Maintenance",
+          "status": "Planned",
+          "scope": "Full car",
+          "mileage": "149200",
+          "cost": "20",
+          "notes": "CEL CODES:\n\tP0750,\n\tP0726\n\nUpdate : 2/12/2026\n\tThis should fix the issue with maxine dropping into 5th gear and \"limp mode\" for no \t\t\treason. if it doesn't its the value body, valued around $100-$150",
+          "attachments": [
+            {
+              "kind": "Photo",
+              "path": "D:\\ThonnProjects\\maxine_tracker\\maxine_assets\\maixinecamSen_20260212_195508.png",
+              "label": "maixinecamSen_20260212_195508.png",
+              "added_at": "2026-02-12 19:55:08"
+            }
+          ],
+          "updated_at": "2026-02-12 19:55:27"
+        },
+        {
+          "date": "2025-12-27",
+          "name": "Starlights",
+          "category": "Interior",
+          "status": "Installed",
+          "mileage": "148000",
+          "cost": "500",
+          "notes": "Starlights : $200\nSupplies : $100\nFabric : $80\nMisc. : $120",
+          "attachments": [],
+          "created_at": "2026-02-12 19:25:38",
+          "updated_at": "2026-02-12 19:25:38"
+        },
+        {
+          "date": "2025-07-25",
+          "name": "Carplay Bluetooth FM",
+          "category": "Interior",
+          "status": "Installed",
+          "mileage": "143000",
+          "cost": "50",
+          "notes": "",
+          "attachments": [],
+          "created_at": "2026-02-12 19:28:32",
+          "updated_at": "2026-02-12 19:28:32"
+        },
+        {
+          "date": "2026-01-27",
+          "name": "Struts",
+          "category": "Suspension",
+          "status": "Installed",
+          "mileage": "148000",
+          "cost": "200",
+          "notes": "Passenger side strut was replaced estimated: Oct-Nov 2025",
+          "attachments": [],
+          "created_at": "2026-02-12 19:32:13",
+          "updated_at": "2026-02-12 19:32:13"
+        },
+        {
+          "date": "2026-01-27",
+          "name": "Driver Side Tie Rod End & Sway Bar",
+          "category": "Suspension",
+          "status": "In Progress",
+          "scope": "Driver side",
+          "mileage": "149000",
+          "cost": "70",
+          "notes": "Still have passenger side part!\n\nONLY DRIVER SIDE WAS INSTALLED!\n\nDrivers side:\n\tSway Bar,\n\tInner Tie Rod End,\n\tOuter Tie Rod End",
+          "attachments": [],
+          "updated_at": "2026-02-12 19:57:36"
+        },
+        {
+          "date": "2026-03-1",
+          "name": "Coilovers",
+          "category": "Suspension",
+          "status": "Planned",
+          "scope": "Full car",
+          "mileage": "",
+          "cost": "530",
+          "notes": "Rev 9 Hyper Street Coilovers:\nhttps://shop.redline360.com/products/rev9-hyper-street-ii-coilovers-nissan-maxima-a34-04-08-w-front-camber-plates?variant=39664791748688\n\nAdjustable height hoping for around 3in-4in off the ground",
+          "attachments": [],
+          "updated_at": "2026-02-12 20:01:41"
+        },
+        {
+          "date": "2026-01-1",
+          "name": "Front Bumper",
+          "category": "Exterior",
+          "status": "Planned",
+          "scope": "Front",
+          "mileage": "",
+          "cost": "450",
+          "notes": "GTR STYLE BUMPER\nCost: $250\nShipping & Taxes: $18X\n\nClips: $20",
+          "attachments": [],
+          "created_at": "2026-02-12 20:06:43",
+          "updated_at": "2026-02-12 20:06:43"
+        },
+        {
+          "date": "2026-04-1",
+          "name": "Window Tint",
+          "category": "Exterior",
+          "status": "Planned",
+          "scope": "Full car",
+          "mileage": "",
+          "cost": "130",
+          "notes": "Full Pre-Cut Tint Kit From:\nNortherntint.com\n\nFull 5% around\nFront windshield suntrip 5%\nFilm: NT Ceramic IR 2-ply\nTint tool kit\ntint application fluid 2 bottles",
+          "attachments": [],
+          "created_at": "2026-02-12 20:10:13",
+          "updated_at": "2026-02-12 20:10:13"
+        },
+        {
+          "date": "2026-04-1",
+          "name": "Chrome Delete",
+          "category": "Exterior",
+          "status": "Planned",
+          "scope": "Full car",
+          "mileage": "",
+          "cost": "30",
+          "notes": "",
+          "attachments": [],
+          "created_at": "2026-02-12 20:10:46",
+          "updated_at": "2026-02-12 20:10:46"
+        },
+        {
+          "date": "2026-05-1",
+          "name": "Wheel Tire Combo",
+          "category": "Wheels/Tires",
+          "status": "Planned",
+          "scope": "Full car",
+          "mileage": "",
+          "cost": "1000",
+          "notes": "TBH for actual cost and set\nalso spacers if need be",
+          "attachments": [],
+          "updated_at": "2026-02-12 20:11:57"
+        },
+        {
+          "date": "2026-06-1",
+          "name": "GTR Style Body Kit",
+          "category": "Exterior",
+          "status": "Planned",
+          "scope": "Full car",
+          "mileage": "",
+          "cost": "870",
+          "notes": "Body kit from:\n\tDrivenbystyle.com\n\nhttps://www.drivenbystyle.com/2004-2006-nissan-maxima-duraflex-vip-body-kit-4-piece-3237.html\n\nIncludes:\n\tfront bumper\n\tside skirts\n\trear bumper",
+          "attachments": [],
+          "updated_at": "2026-02-12 20:15:03"
+        },
+        {
+          "date": "2026-07-1",
+          "name": "Full Vinyl Roll Wrap",
+          "category": "Exterior",
+          "status": "Planned",
+          "scope": "Full car",
+          "mileage": "",
+          "cost": "800",
+          "notes": "TBH on final color",
+          "attachments": [],
+          "created_at": "2026-02-12 20:15:55",
+          "updated_at": "2026-02-12 20:15:55"
+        }
+      ],
+      "current_mileage": 149200,
+      "maintenance": [
+        {
+          "task": "Alignment",
+          "last_date": "2026-02-13",
+          "last_miles": "149300",
+          "interval_miles": "4000",
+          "notes": "Done after tie rod end replacement",
+          "created_at": "2026-02-12 20:04:19",
+          "updated_at": "2026-02-13 22:52:21"
+        },
+        {
+          "task": "Power steering fluid",
+          "last_date": "2026-02-13",
+          "last_miles": "149100",
+          "interval_miles": "3000",
+          "notes": "Grabbed 2 Bottles of 7/11 power steering fluid should last till march hopefully",
+          "created_at": "2026-02-13 22:51:34",
+          "updated_at": "2026-02-13 22:51:34"
+        }
+      ]
+    }
+  ],
+  "updated_at": "2026-02-14 11:20:03"
+}
