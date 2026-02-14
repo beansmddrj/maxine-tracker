@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+maxine_mods.json
+maxine_assets/
+dist/
+build/
+*.spec
