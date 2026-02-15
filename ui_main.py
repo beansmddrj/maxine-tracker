@@ -242,9 +242,9 @@ class ModTrackerApp(tk.Tk):
         self.tk.call("tk", "scaling", self._scale_windowed)
 
     def exit_fullscreen(self):
-    self._fullscreen = False
-    self.attributes("-fullscreen", False)
-    self.tk.call("tk", "scaling", self._scale_windowed)
+        self._fullscreen = False
+        self.attributes("-fullscreen", False)
+        self.tk.call("tk", "scaling", self._scale_windowed)
 
 
     # ---------- data helpers ----------
