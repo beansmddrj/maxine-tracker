@@ -31,7 +31,7 @@ except Exception:
 # settings: dict      |
 #                    \|/
 #                     v
-def apply_car_friendly_ui(root: tk.Tk):
+def apply_car_friendly_ui(root: tk.Tk, settings:dict):
     ui_scale = float(settings.get("ui_scale", 1.45))
     font_family = settings.get("font_family", "Segoe UI")
     font_size = int(settings.get("font_size", 13))
@@ -191,6 +191,7 @@ def make_date_widget(parent, textvariable: tk.StringVar):
     return ttk.Entry(parent, textvariable=textvariable)
 
 
+
 class ModTrackerApp(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -198,8 +199,12 @@ class ModTrackerApp(tk.Tk):
         # define these FIRST
         self._scale_windowed = 1.45
         self._scale_fullscreen = 1.0
+        self.settings = {
+            "ui_scale": 1.45,
+            "theme": "dark"
+        }
 
-        apply_car_friendly_ui(self)
+        apply_car_friendly_ui(self, self.settings)
 
         # now safe to use
         self.tk.call("tk", "scaling", self._scale_windowed)
