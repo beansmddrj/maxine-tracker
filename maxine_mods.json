@@ -24,11 +24,11 @@
           "date": "2026-02-14",
           "name": "Crankshaft Position Sensor",
           "category": "Maintenance",
-          "status": "Planned",
+          "status": "Installed",
           "scope": "Full car",
           "mileage": "149200",
           "cost": "20",
-          "notes": "CEL CODES:\n\tP0750,\n\tP0726\n\nUpdate : 2/12/2026\n\tThis should fix the issue with maxine dropping into 5th gear and \"limp mode\" for no \t\t\treason. if it doesn't its the value body, valued around $100-$150",
+          "notes": "CEL CODES:\n\tP0750,\n\tP0726\n\nUpdate : 2/12/2026\n\tThis should fix the issue with maxine dropping into 5th gear and \"limp mode\" for no \t\t\treason. if it doesn't its the value body, valued around $100-$150\n\nUpdate : 2/14/2026\n\tInstalled earlier today and clear CEL codes. Have yet to know if this is causing the \"5th Gear Demon\"",
           "attachments": [
             {
               "kind": "Photo",
@@ -37,7 +37,7 @@
               "added_at": "2026-02-12 19:55:08"
             }
           ],
-          "updated_at": "2026-02-12 19:55:27"
+          "updated_at": "2026-02-14 21:14:40"
         },
         {
           "date": "2025-12-27",
@@ -199,5 +199,5 @@
       ]
     }
   ],
-  "updated_at": "2026-02-14 11:20:03"
+  "updated_at": "2026-02-14 21:48:52"
 }
