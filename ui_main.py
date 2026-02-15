@@ -231,8 +231,8 @@ class ModTrackerApp(tk.Tk):
 
     # ---------- fullscreen ----------
     def toggle_fullscreen(self):
-    self._fullscreen = not self._fullscreen
-    self.attributes("-fullscreen", self._fullscreen)
+        self._fullscreen = not self._fullscreen
+        self.attributes("-fullscreen", self._fullscreen)
 
     # TV-safe scaling in fullscreen
     if self._fullscreen:
