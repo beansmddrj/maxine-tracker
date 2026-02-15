@@ -32,7 +32,14 @@ except Exception:
 #                    \|/
 #                     v
 def apply_car_friendly_ui(root: tk.Tk, settings:dict):
-    ui_scale = float(settings.get("ui_scale", 1.45))
+    
+    w = root.winfo_screenwidth()
+    h = root.winfo_screenheight()
+    
+    ui_scale = 1.45 if(w<= 1280 and h<= 800) else 1.0
+    
+    
+    #ui_scale = float(settings.get("ui_scale", 1.45))
     font_family = settings.get("font_family", "Segoe UI")
     font_size = int(settings.get("font_size", 13))
     theme_name = settings.get("theme", "dark")
