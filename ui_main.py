@@ -191,13 +191,16 @@ def make_date_widget(parent, textvariable: tk.StringVar):
 class ModTrackerApp(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.settings = data_store.load_settings()
-        apply_car_friendly_ui(self, self.settings)
+
+        # define these FIRST
+        self._scale_windowed = 1.45
+        self._scale_fullscreen = 1.0
+
+        apply_car_friendly_ui(self)
+
+        # now safe to use
         self.tk.call("tk", "scaling", self._scale_windowed)
 
-        
-        self._scale_windowed = 1.45
-        self._scale_fullscreen = 1.0  # TV-safe
 
 
         self.data = data_store.load_data()
