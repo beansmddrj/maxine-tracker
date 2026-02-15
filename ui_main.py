@@ -28,7 +28,10 @@ except Exception:
     TKCAL_OK = False
 
 
-def apply_car_friendly_ui(root: tk.Tk, settings: dict):
+# settings: dict      |
+#                    \|/
+#                     v
+def apply_car_friendly_ui(root: tk.Tk):
     ui_scale = float(settings.get("ui_scale", 1.45))
     font_family = settings.get("font_family", "Segoe UI")
     font_size = int(settings.get("font_size", 13))
@@ -196,7 +199,7 @@ class ModTrackerApp(tk.Tk):
         self._scale_windowed = 1.45
         self._scale_fullscreen = 1.0
 
-        apply_car_friendly_ui(self, self.settings)
+        apply_car_friendly_ui(self)
 
         # now safe to use
         self.tk.call("tk", "scaling", self._scale_windowed)
