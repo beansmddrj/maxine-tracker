@@ -31,20 +31,27 @@ except Exception:
 # settings: dict      |
 #                    \|/
 #                     v
-def apply_car_friendly_ui(root: tk.Tk, settings:dict):
-    
+def apply_car_friendly_ui(root: tk.Tk):
+    root.update_idletasks()
     w = root.winfo_screenwidth()
     h = root.winfo_screenheight()
-    
-    ui_scale = 1.45 if(w<= 1280 and h<= 800) else 1.0
-    
-    
-    #ui_scale = float(settings.get("ui_scale", 1.45))
-    font_family = settings.get("font_family", "Segoe UI")
-    font_size = int(settings.get("font_size", 13))
-    theme_name = settings.get("theme", "dark")
 
-    root.tk.call("tk", "scaling", ui_scale)
+    # Keep Tk scaling stable for reliable clicks (VNC/touch safe)
+    root.tk.call("tk", "scaling", 1.0)
+
+    # Responsive sizing rules
+    if w <= 1280 and h <= 800:
+        base = 14
+        btn = 16
+        pad_btn = (18, 14)
+        tab_pad = (22, 14)
+        row_h = 44
+    else:
+        base = 12
+        btn = 14
+        pad_btn = (14, 10)
+        tab_pad = (18, 10)
+        row_h = 38
 
     style = ttk.Style(root)
     try:
@@ -52,122 +59,17 @@ def apply_car_friendly_ui(root: tk.Tk, settings:dict):
     except Exception:
         pass
 
-    # Base font sizes (buttons slightly bigger)
-    style.configure(".", font=(font_family, font_size))
-    style.configure("TLabel", font=(font_family, font_size))
-    style.configure("TEntry", padding=(10, 10), font=(font_family, font_size))
-    style.configure("TCombobox", padding=(10, 8), font=(font_family, font_size))
-    style.configure("TCheckbutton", font=(font_family, font_size))
-    style.configure("TLabelframe.Label", font=(font_family, font_size, "bold"))
-    style.configure("TNotebook.Tab", padding=(20, 12), font=(font_family, font_size, "bold"))
-    style.configure("Treeview", rowheight=40, font=(font_family, max(11, font_size - 1)))
-    style.configure("Treeview.Heading", font=(font_family, max(11, font_size - 1), "bold"))
-    style.configure("TButton", padding=(16, 12), font=(font_family, font_size + 1, "bold"))
+    style.configure(".", font=("Segoe UI", base))
+    style.configure("TButton", padding=pad_btn, font=("Segoe UI", btn, "bold"))
+    style.configure("TLabel", font=("Segoe UI", base))
+    style.configure("TEntry", padding=(10, 8), font=("Segoe UI", base))
+    style.configure("TCombobox", padding=(10, 6), font=("Segoe UI", base))
+    style.configure("TCheckbutton", font=("Segoe UI", base))
+    style.configure("TLabelframe.Label", font=("Segoe UI", base, "bold"))
+    style.configure("TNotebook.Tab", padding=tab_pad, font=("Segoe UI", base, "bold"))
+    style.configure("Treeview", rowheight=row_h, font=("Segoe UI", base - 1))
+    style.configure("Treeview.Heading", font=("Segoe UI", base - 1, "bold"))
 
-        # --- Theme colors (better looking + consistent) ---
-    if theme_name == "dark":
-        bg = "#0F1115"        # app background
-        fg = "#E6EAF2"        # main text
-        muted = "#AAB3C5"     # secondary text
-        card = "#151926"      # frames/labelframes surface
-        field_bg = "#0B0E14"  # entry-like surfaces
-        border = "#2A3142"
-        accent = "#4C8DFF"    # blue accent
-        accent2 = "#2E6BFF"
-        danger = "#FF4D4D"
-        btn_bg = "#1A2133"
-        btn_hover = "#232C44"
-        btn_press = "#2B3656"
-        select_bg = "#2E6BFF"
-    else:
-        bg = "#F4F6FA"
-        fg = "#121620"
-        muted = "#556070"
-        card = "#FFFFFF"
-        field_bg = "#FFFFFF"
-        border = "#CCD3E0"
-        accent = "#2E6BFF"
-        accent2 = "#1F57E7"
-        danger = "#D93025"
-        btn_bg = "#E9EDF5"
-        btn_hover = "#DDE4F2"
-        btn_press = "#CFD8EB"
-        select_bg = "#2E6BFF"
-
-    # ---- Base surfaces ----
-    style.configure("TFrame", background=bg)
-    style.configure("TLabelframe", background=card, bordercolor=border, relief="solid")
-    style.configure("TLabelframe.Label", background=card, foreground=fg)
-    style.configure("TLabel", background=bg, foreground=fg)
-
-    # Notebook
-    style.configure("TNotebook", background=bg, borderwidth=0)
-    style.configure("TNotebook.Tab", background=card, foreground=fg)
-    style.map(
-        "TNotebook.Tab",
-        background=[("selected", bg), ("active", card)],
-        foreground=[("selected", fg), ("active", fg)],
-    )
-
-    # ---- Inputs ----
-    style.configure("TEntry", fieldbackground=field_bg, foreground=fg, bordercolor=border, relief="flat")
-    style.configure("TCombobox", fieldbackground=field_bg, foreground=fg)
-    style.map(
-        "TCombobox",
-        fieldbackground=[("readonly", field_bg)],
-        foreground=[("readonly", fg)],
-        background=[("readonly", field_bg)],
-    )
-
-    # Checkbutton (clam behaves better than default)
-    style.configure("TCheckbutton", background=bg, foreground=fg)
-
-    # ---- Buttons (THIS fixes white buttons) ----
-    style.configure(
-        "TButton",
-        background=btn_bg,
-        foreground=fg,
-        bordercolor=border,
-        focusthickness=0,
-        focuscolor=border,
-        relief="flat",
-    )
-    style.map(
-        "TButton",
-        background=[("active", btn_hover), ("pressed", btn_press), ("disabled", card)],
-        foreground=[("disabled", muted)],
-    )
-
-    # Optional: Accent button style you can use for key actions
-    style.configure(
-        "Accent.TButton",
-        background=accent,
-        foreground="#FFFFFF",
-        bordercolor=accent2,
-        relief="flat",
-    )
-    style.map(
-        "Accent.TButton",
-        background=[("active", accent2), ("pressed", accent2), ("disabled", card)],
-        foreground=[("disabled", muted)],
-    )
-
-    # ---- Treeview ----
-    style.configure(
-        "Treeview",
-        background=card,
-        fieldbackground=card,
-        foreground=fg,
-        bordercolor=border,
-        relief="flat",
-    )
-    style.map("Treeview", background=[("selected", select_bg)], foreground=[("selected", "#FFFFFF")])
-
-    style.configure("Treeview.Heading", background=bg, foreground=fg, relief="flat")
-    style.map("Treeview.Heading", background=[("active", card)])
-
-    # Root background for non-ttk
-    root.configure(background=bg)
 
 
 
@@ -201,6 +103,7 @@ def make_date_widget(parent, textvariable: tk.StringVar):
 
 class ModTrackerApp(tk.Tk):
     def __init__(self):
+        import sys
         super().__init__()
 
         # define these FIRST
@@ -249,20 +152,28 @@ class ModTrackerApp(tk.Tk):
 
     # ---------- fullscreen ----------
     def toggle_fullscreen(self):
-        self._fullscreen = not self._fullscreen
-        self.attributes("-fullscreen", self._fullscreen)
-        
+    # On Pi/Linux: maximize instead of fullscreen to avoid scaling/input issues
+    if sys.platform.startswith("linux"):
+        try:
+            self.state("zoomed")
+        except Exception:
+            self.geometry(f"{self.winfo_screenwidth()}x{self.winfo_screenheight()}+0+0")
+        return
 
-        # TV-safe scaling in fullscreen
-        if self._fullscreen:
-            self.tk.call("tk", "scaling", self._scale_fullscreen)
-        else:
-            self.tk.call("tk", "scaling", self._scale_windowed)
+    # Windows/mac: true fullscreen toggle
+    self._fullscreen = not self._fullscreen
+    self.attributes("-fullscreen", self._fullscreen)
 
-        def exit_fullscreen(self):
-            self._fullscreen = False
-            self.attributes("-fullscreen", False)
-            self.tk.call("tk", "scaling", self._scale_windowed)
+    def exit_fullscreen(self):
+        if sys.platform.startswith("linux"):
+            try:
+                self.state("normal")
+            except Exception:
+                pass
+            return
+
+        self._fullscreen = False
+        self.attributes("-fullscreen", False)
 
 
     # ---------- data helpers ----------
