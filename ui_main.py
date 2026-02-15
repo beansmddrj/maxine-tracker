@@ -235,16 +235,16 @@ class ModTrackerApp(tk.Tk):
         self.attributes("-fullscreen", self._fullscreen)
         
 
-    # TV-safe scaling in fullscreen
-    if self._fullscreen:
-        self.tk.call("tk", "scaling", self._scale_fullscreen)
-    else:
-        self.tk.call("tk", "scaling", self._scale_windowed)
+        # TV-safe scaling in fullscreen
+        if self._fullscreen:
+            self.tk.call("tk", "scaling", self._scale_fullscreen)
+        else:
+            self.tk.call("tk", "scaling", self._scale_windowed)
 
-    def exit_fullscreen(self):
-        self._fullscreen = False
-        self.attributes("-fullscreen", False)
-        self.tk.call("tk", "scaling", self._scale_windowed)
+        def exit_fullscreen(self):
+            self._fullscreen = False
+            self.attributes("-fullscreen", False)
+            self.tk.call("tk", "scaling", self._scale_windowed)
 
 
     # ---------- data helpers ----------
