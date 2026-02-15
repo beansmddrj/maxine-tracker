@@ -193,6 +193,12 @@ class ModTrackerApp(tk.Tk):
         super().__init__()
         self.settings = data_store.load_settings()
         apply_car_friendly_ui(self, self.settings)
+        self.tk.call("tk", "scaling", self._scale_windowed)
+
+        
+        self._scale_windowed = 1.45
+        self._scale_fullscreen = 1.0  # TV-safe
+
 
         self.data = data_store.load_data()
         self.vehicle = self._get_active_vehicle()
@@ -225,12 +231,20 @@ class ModTrackerApp(tk.Tk):
 
     # ---------- fullscreen ----------
     def toggle_fullscreen(self):
-        self._fullscreen = not self._fullscreen
-        self.attributes("-fullscreen", self._fullscreen)
+    self._fullscreen = not self._fullscreen
+    self.attributes("-fullscreen", self._fullscreen)
+
+    # TV-safe scaling in fullscreen
+    if self._fullscreen:
+        self.tk.call("tk", "scaling", self._scale_fullscreen)
+    else:
+        self.tk.call("tk", "scaling", self._scale_windowed)
 
     def exit_fullscreen(self):
-        self._fullscreen = False
-        self.attributes("-fullscreen", False)
+    self._fullscreen = False
+    self.attributes("-fullscreen", False)
+    self.tk.call("tk", "scaling", self._scale_windowed)
+
 
     # ---------- data helpers ----------
     def _get_active_vehicle(self) -> dict:
