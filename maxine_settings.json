@@ -1,10 +1,7 @@
 {
-  "schema": 1,
-  "theme": "dark",
   "ui_scale": 1.45,
-  "font_family": "Segoe UI",
-  "font_size": 13,
+  "theme": "dark",
   "autosave_ms": 20000,
   "car_mode": true,
-  "updated_at": "2026-02-14 00:37:57"
+  "updated_at": "2026-02-16 11:50:00"
 }

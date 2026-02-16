@@ -114,7 +114,7 @@ class ModTrackerApp(tk.Tk):
             "theme": "dark"
         }
 
-        apply_car_friendly_ui(self, self.settings)
+        apply_car_friendly_ui(self)
 
         # now safe to use
         self.tk.call("tk", "scaling", self._scale_windowed)
@@ -153,16 +153,16 @@ class ModTrackerApp(tk.Tk):
     # ---------- fullscreen ----------
     def toggle_fullscreen(self):
     # On Pi/Linux: maximize instead of fullscreen to avoid scaling/input issues
-    if sys.platform.startswith("linux"):
-        try:
-            self.state("zoomed")
-        except Exception:
-            self.geometry(f"{self.winfo_screenwidth()}x{self.winfo_screenheight()}+0+0")
-        return
+        if sys.platform.startswith("linux"):
+            try:
+                self.state("zoomed")
+            except Exception:
+                self.geometry(f"{self.winfo_screenwidth()}x{self.winfo_screenheight()}+0+0")
+            return
 
-    # Windows/mac: true fullscreen toggle
-    self._fullscreen = not self._fullscreen
-    self.attributes("-fullscreen", self._fullscreen)
+        # Windows/mac: true fullscreen toggle
+        self._fullscreen = not self._fullscreen
+        self.attributes("-fullscreen", self._fullscreen)
 
     def exit_fullscreen(self):
         if sys.platform.startswith("linux"):
